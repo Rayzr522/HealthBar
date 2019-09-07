@@ -20,6 +20,7 @@ import org.bukkit.scheduler.BukkitScheduler;
 import java.util.*;
 
 public class DamageListener implements Listener {
+    private static final String COLOR_PREFIX = "\u00A7f";
 
     private final static Plugin plugin = Main.plugin;
     private static BukkitScheduler scheduler = Bukkit.getScheduler();
@@ -191,7 +192,7 @@ public class DamageListener implements Listener {
          */
         String customName = mob.getCustomName();
         if (customName != null) {
-            if (!customName.startsWith("\u00A7r")) {
+            if (!customName.startsWith(COLOR_PREFIX)) {
                 if (showOnCustomNames) {
                     namesTable.put(mob.getEntityId(), new StringBoolean(customName, mob.isCustomNameVisible()));
                 } else return;
@@ -227,7 +228,6 @@ public class DamageListener implements Listener {
     }
 
     private static void showMobHealthBar(final LivingEntity mob) {
-
         scheduler.scheduleSyncDelayedTask(plugin, () -> {
             //check for compatibility
             double health = mob.getHealth();
@@ -241,7 +241,7 @@ public class DamageListener implements Listener {
 
             //what type of health should be displayed?
             if (barStyle == BarType.BAR) {
-                mob.setCustomName("\u00A7r" + barArray[Utils.roundUpPositiveWithMax(((health / max) * 20.0), 20)]);
+                mob.setCustomName(COLOR_PREFIX + barArray[Utils.roundUpPositiveWithMax(((health / max) * 20.0), 20)]);
 
             } else if (barStyle == BarType.CUSTOM_TEXT) {
                 String displayString = mobCustomText.replace("{h}", String.valueOf(Utils.roundUpPositive(health)));
@@ -251,10 +251,10 @@ public class DamageListener implements Listener {
                 if (customTextContains_Name)
                     displayString = displayString.replace("{n}", getName(mob, mob.getType().toString()));
 
-                mob.setCustomName("\u00A7r" + displayString);
+                mob.setCustomName(COLOR_PREFIX + displayString);
 
             } else if (barStyle == BarType.DEFAULT_TEXT) {
-                StringBuilder sb = new StringBuilder("\u00A7rHealth: ");
+                StringBuilder sb = new StringBuilder(COLOR_PREFIX + "Health: ");
                 sb.append(Utils.roundUpPositive(health));
                 sb.append("/");
                 sb.append(Utils.roundUpPositive(max));
@@ -283,7 +283,7 @@ public class DamageListener implements Listener {
     public static void hideBar(LivingEntity mob) {
 
         String cname = mob.getCustomName();
-        if (cname != null && !cname.startsWith("\u00A7r")) {
+        if (cname != null && !cname.startsWith(COLOR_PREFIX)) {
             //it's a real name! Don't touch it!
             return;
         }
@@ -360,7 +360,7 @@ public class DamageListener implements Listener {
 
     private static String getName(LivingEntity mob, String mobType) {
         String customName = mob.getCustomName();
-        if (customName != null && !customName.startsWith("\u00A7r")) {
+        if (customName != null && !customName.startsWith(COLOR_PREFIX)) {
             return customName;
         }
 
