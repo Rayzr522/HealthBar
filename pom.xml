@@ -6,7 +6,7 @@
 
     <groupId>com.filoghost</groupId>
     <artifactId>healthbar</artifactId>
-    <version>1.8.2</version>
+    <version>1.8.3</version>
     <name>HealthBar</name>
     <description>A simple plugin by Filoghost to display healthbars for mobs and players.</description>
 
