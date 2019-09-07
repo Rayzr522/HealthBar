@@ -8,7 +8,7 @@ I take no credit for the original work of [@filoghost](https://github.com/filogh
 
 ## Installation
 
-Simply grab the latest JAR file from the [releases page](https://github.com/Rayzr522/HeatlhBar/releases).
+Simply grab the latest JAR file from the [releases page](https://github.com/Rayzr522/HealthBar/releases).
 
 ## Join Me
 [![Discord Badge](https://github.com/Rayzr522/ProjectResources/raw/master/RayzrDev/badge-small.png)](https://discord.io/rayzrdevofficial)
