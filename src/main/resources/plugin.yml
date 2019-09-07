@@ -2,6 +2,7 @@ name: ${project.name}
 authors: [filoghost, Rayzr522]
 main: com.gmail.filoghost.healthbar.Main
 version: ${project.version}
+api-version: "1.13"
 
 commands:
     healthbar:
