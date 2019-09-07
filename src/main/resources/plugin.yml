@@ -1,0 +1,10 @@
+name: ${project.name}
+authors: [filoghost, Rayzr522]
+main: com.gmail.filoghost.healthbar.Main
+version: ${project.version}
+
+commands:
+    healthbar:
+        description: Main command for HealthBar, use /hbr help for commands.
+        usage: /<command>
+        aliases: [hbr,hbar]
